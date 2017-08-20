@@ -6,8 +6,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //AngularFire imports
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase } from 'angularfire2/database'
-import { AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 //component imports
 import { AppComponent } from './app.component';
@@ -27,26 +27,29 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SettingsService } from './services/settings.service';
 
 const appRoutes: Routes = [
-  {path:'', component:DashboardComponent, canActivate:[AuthGuard]},
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
-  {path:'add-client', component:AddClientComponent, canActivate:[AuthGuard]},
-  {path:'client/:id', component:ClientDetailsComponent, canActivate:[AuthGuard]},
-  {path:'edit-client/:id', component:EditClientComponent, canActivate:[AuthGuard]}
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuard] },
+  { path: 'client/:id', component: ClientDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'edit-client/:id', component: EditClientComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent }
   // {path:'register', component:RegisterComponent},
   // {path:'register', component:RegisterComponent},
   // {path:'register', component:RegisterComponent},
-]
+];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyC60aVrcl3Qq4N0kF0R1Mh0EQkQW5ILFZI",
-  authDomain: "clientpanel-1cccf.firebaseapp.com",
-  databaseURL: "https://clientpanel-1cccf.firebaseio.com",
-  storageBucket: "clientpanel-1cccf.appspot.com",
-  messagingSenderId: "655825684533"
-}
+  apiKey: 'AIzaSyC60aVrcl3Qq4N0kF0R1Mh0EQkQW5ILFZI',
+  authDomain: 'clientpanel-1cccf.firebaseapp.com',
+  databaseURL: 'https://clientpanel-1cccf.firebaseio.com',
+  storageBucket: 'clientpanel-1cccf.appspot.com',
+  messagingSenderId: '655825684533'
+};
 
 
 @NgModule({
@@ -71,7 +74,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     FlashMessagesModule
   ],
-  providers: [AngularFireAuth, AngularFireDatabase, ClientService, AuthService, AuthGuard],
+  providers: [AngularFireAuth, AngularFireDatabase, ClientService, AuthService, AuthGuard, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

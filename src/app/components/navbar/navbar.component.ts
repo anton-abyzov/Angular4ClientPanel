@@ -10,29 +10,28 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn:boolean;
-  loggedInUser:string;
-  showRegister:boolean;
+  isLoggedIn: boolean;
+  loggedInUser: string;
+  showRegister: boolean;
 
   constructor(
-    public router:Router, public authService:AuthService, public flashMessagesService:FlashMessagesService
+    public router: Router, public authService: AuthService, public flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth => {
-      if (auth){
+      if (auth) {
         this.isLoggedIn = true;
         this.loggedInUser = auth.email;
-      }
-      else{
+      } else {
         this.isLoggedIn = false;
       }
     })
   }
 
-  onLogoutClick(){
+  onLogoutClick() {
     this.authService.logout();
-    this.flashMessagesService.show('You are logged out', {cssClass:'alert-success', timeout:4000});
+    this.flashMessagesService.show('You are logged out', { cssClass: 'alert-success', timeout: 4000 });
     this.router.navigate(['/login']);
   }
 
