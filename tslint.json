@@ -1,4 +1,6 @@
 {
+  "tslint.enable": false,
+  "tslint.jsenable": false,
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -7,8 +9,8 @@
     "callable-types": true,
     "class-name": true,
     "comment-format": [
-      true,
-      "check-space"
+      true
+      //"check-space"
     ],
     "curly": true,
     "eofline": true,
@@ -19,8 +21,8 @@
     ],
     "import-spacing": true,
     "indent": [
-      true,
-      "spaces"
+      //true,
+      //"spaces"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -76,8 +78,8 @@
       true,
       "check-open-brace",
       "check-catch",
-      "check-else",
-      "check-whitespace"
+      "check-else"
+      //"check-whitespace"
     ],
     "prefer-const": true,
     "quotemark": [
@@ -97,10 +99,10 @@
       true,
       {
         "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
+        "index-signature": "nospace"
+        //"parameter": "nospace",
+        //"property-declaration": "nospace",
+        //"variable-declaration": "nospace"
       }
     ],
     "typeof-compare": true,
